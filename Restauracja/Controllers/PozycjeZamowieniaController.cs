@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Restauracja.Data;
 using Restauracja.Data.Services;
+using Restauracja.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +12,30 @@ namespace Restauracja.Controllers
 {
     public class PozycjeZamowieniaController : Controller
     {
-        private readonly IPozycjaZamowienia _service;
-        public PozycjeZamowieniaController(IPozycjaZamowienia service)
+        private readonly IPozycjeZamowieniaService _service;
+        public PozycjeZamowieniaController(IPozycjeZamowieniaService service)
         {
             _service= service;
         }
         public async Task<IActionResult> Index() 
         {
-            var pz = await _service.PobierzWszystkie();
-            return View(pz);
+            var res = await _service.PobierzWszystkie();
+            return View(res);
         }
 
-        public IActionResult Dodaj() //get drugi ścieżka pz/Dodaj
+        public IActionResult DodajwMenu() //get drugi ścieżka pz/DodajwMenu
         {
             return View();
+        }
+        [HttpPost] 
+        public async Task<IActionResult> DodajwMenu([Bind("Nazwa, Kategoria, Cena")] PozycjaZamowienia pozycjaZamowienia )
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(pozycjaZamowienia);
+            }
+            _service.Dodaj(pozycjaZamowienia);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

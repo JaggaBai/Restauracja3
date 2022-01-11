@@ -14,6 +14,7 @@ namespace Restauracja.Models
         public int IdPozycji { get; set; }
 
         [Display(Name = "Nazwa")]
+        [Required]
         public string Nazwa { get; set; }
 
         [Display(Name = "Kategoria")]

@@ -30,7 +30,7 @@ namespace Restauracja
         {
             services.AddDbContext<RestDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));//tu-sem-jest-db
 
-            services.AddScoped<IPozycjaZamowienia, PozycjaZamowienieService>();
+            services.AddScoped<IPozycjeZamowieniaService, PozycjeZamowieniaService>();
 
             services.AddControllersWithViews();
 

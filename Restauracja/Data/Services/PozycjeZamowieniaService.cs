@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Restauracja.Data.Services
 {
-    public class PozycjaZamowienieService : IPozycjaZamowienia
+    public class PozycjeZamowieniaService : IPozycjeZamowieniaService
     {     
         private readonly RestDbContext _context;
-        public PozycjaZamowienieService(RestDbContext context)
+        public PozycjeZamowieniaService(RestDbContext context)
         {
             _context = context;
         }
@@ -21,7 +21,8 @@ namespace Restauracja.Data.Services
 
         public void Dodaj(PozycjaZamowienia pozycjaZamowienia)
         {
-            throw new NotImplementedException();
+            _context.PozycjeZamowienia.Add(pozycjaZamowienia);
+            _context.SaveChanges();
         }
 
         public async Task<IEnumerable<PozycjaZamowienia>> PobierzWszystkie()

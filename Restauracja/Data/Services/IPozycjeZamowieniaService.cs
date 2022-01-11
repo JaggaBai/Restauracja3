@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restauracja.Data.Services
 {
-    public interface IPozycjaZamowienia
+    public interface IPozycjeZamowieniaService
     {
         Task<IEnumerable<PozycjaZamowienia>> PobierzWszystkie();
         void Dodaj(PozycjaZamowienia pozycjaZamowienia);
