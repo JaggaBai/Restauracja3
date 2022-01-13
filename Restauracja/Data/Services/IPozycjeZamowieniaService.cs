@@ -11,8 +11,8 @@ namespace Restauracja.Data.Services
         Task<IEnumerable<PozycjaZamowienia>> PobierzWszystkie();
         void Dodaj(PozycjaZamowienia pozycjaZamowienia);
 
-        PozycjaZamowienia Update(int id, PozycjaZamowienia nowapozycjaZamowienia);
         void Delate(int id);
+
 
 
     }

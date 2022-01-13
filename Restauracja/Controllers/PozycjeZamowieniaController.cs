@@ -15,9 +15,9 @@ namespace Restauracja.Controllers
         private readonly IPozycjeZamowieniaService _service;
         public PozycjeZamowieniaController(IPozycjeZamowieniaService service)
         {
-            _service= service;
+            _service = service;
         }
-        public async Task<IActionResult> Index() 
+        public async Task<IActionResult> Index()
         {
             var res = await _service.PobierzWszystkie();
             return View(res);
@@ -27,8 +27,8 @@ namespace Restauracja.Controllers
         {
             return View();
         }
-        [HttpPost] 
-        public async Task<IActionResult> DodajwMenu([Bind("Nazwa, Kategoria, Cena")] PozycjaZamowienia pozycjaZamowienia )
+        [HttpPost]
+        public async Task<IActionResult> DodajwMenu([Bind("Nazwa, Id, Cena")] PozycjaZamowienia pozycjaZamowienia)
         {
             if (!ModelState.IsValid)
             {
@@ -37,5 +37,7 @@ namespace Restauracja.Controllers
             _service.Dodaj(pozycjaZamowienia);
             return RedirectToAction(nameof(Index));
         }
+       
+        }
     }
-}
+

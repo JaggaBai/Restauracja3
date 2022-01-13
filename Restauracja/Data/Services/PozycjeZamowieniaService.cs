@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Restauracja.Data.Services
 {
     public class PozycjeZamowieniaService : IPozycjeZamowieniaService
-    {     
+    {
         private readonly RestDbContext _context;
         public PozycjeZamowieniaService(RestDbContext context)
         {
@@ -31,10 +31,6 @@ namespace Restauracja.Data.Services
             return res;
         }
 
-        public PozycjaZamowienia Update(int id, PozycjaZamowienia nowapozycjaZamowienia)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 
