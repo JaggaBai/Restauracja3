@@ -23,6 +23,17 @@ namespace Restauracja.Controllers
             return View(res);
         }
 
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var res = await _service.PobierzWszystkie();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filtrowanie = res.Where(n => n.Nazwa.Contains(searchString)).ToList();
+                return View("Index", filtrowanie);
+            }
+            return View("Index", res);
+        }
+
         public IActionResult DodajwMenu() //get drugi ścieżka pz/DodajwMenu
         {
             return View();
