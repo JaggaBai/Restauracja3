@@ -16,10 +16,11 @@ namespace Restauracja.Models
 
         [Display(Name = "Nazwa")]
         [Required]
+        [StringLength(30)]
         public string Nazwa { get; set; }
 
-        [Display(Name = "Kategoria")]
-        public KategoriaPozycji KategoriaPozycji { get; set; }
+        //[Display(Name = "Kategoria")]
+        //public KategoriaPozycji KategoriaPozycji { get; set; }
 
         [Display(Name = "Cena")]
         [Column(TypeName = "decimal(18, 2)")]

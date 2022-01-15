@@ -11,14 +11,14 @@ namespace Restauracja.Models
     {
         [Key]
         public int IdZamownie { get; set; }
+        [Display(Name = "Numer Klienta")]
+        public int KlientId { get; set; }
+
         [Display(Name = "Data zamówienia")]
         public DateTime DataZamowienia { get; set; }
 
         public List<Zamowienie_PozycjaZamowienia> Zamowienie_PozycjaZamowienias { get; set; }
-        [Display(Name = "Numer Klienta")]
-        public int KlientId { get; set; }
-        [ForeignKey("KlientId")]
-        public Klient Klient {get; set;}
+       
 
     }
 }
